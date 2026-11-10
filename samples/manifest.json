@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "is_synthetic": true,
+  "source_note": "所有经营数据、产品资料和网页均为人工构建的离线演示资料；不代表真实店铺或行业。",
+  "period": {
+    "start_date": "2026-01-01",
+    "end_date": "2026-03-31"
+  },
+  "default_question": "分析2026年1月至3月咖啡用品的销售变化，结合产品资料与示例市场信息给出选品建议，并说明数据局限。",
+  "datasets": [
+    {
+      "name": "模拟咖啡用品订单（2026年一季度）",
+      "path": "orders.csv",
+      "is_synthetic": true
+    }
+  ],
+  "documents": [
+    {
+      "name": "咖啡用品产品资料（模拟示例）",
+      "path": "documents/product_guide.md",
+      "version": "demo-2026-03-v1"
+    },
+    {
+      "name": "咖啡用品经营口径与数据限制（模拟示例）",
+      "path": "documents/operations_notes.md",
+      "version": "demo-2026-03-v1"
+    }
+  ],
+  "web_sources_file": "web_sources.json",
+  "expected": {
+    "row_count": 19,
+    "order_count": 16,
+    "quantity": 60,
+    "paid_amount": 3900.0,
+    "refund_amount": 180.0,
+    "net_sales": 3720.0,
+    "monthly": {
+      "2026-01": {
+        "rows": 6,
+        "orders": 5,
+        "quantity": 15,
+        "paid_amount": 900.0,
+        "refund_amount": 20.0,
+        "net_sales": 880.0,
+        "average_order_value": 180.0
+      },
+      "2026-02": {
+        "rows": 6,
+        "orders": 5,
+        "quantity": 18,
+        "paid_amount": 1200.0,
+        "refund_amount": 60.0,
+        "net_sales": 1140.0,
+        "average_order_value": 240.0
+      },
+      "2026-03": {
+        "rows": 7,
+        "orders": 6,
+        "quantity": 27,
+        "paid_amount": 1800.0,
+        "refund_amount": 100.0,
+        "net_sales": 1700.0,
+        "average_order_value": 300.0
+      }
+    },
+    "monthly_paid_amount_growth": {
+      "2026-02": 0.3333333333333333,
+      "2026-03": 0.5
+    }
+  },
+  "metric_definitions": {
+    "sales": "sum(paid_amount)",
+    "net_sales": "sum(paid_amount)-sum(refund_amount)",
+    "orders": "nunique(order_id)",
+    "average_order_value": "sum(paid_amount)/nunique(order_id)",
+    "quantity": "sum(quantity)",
+    "refund_amount_share": "sum(refund_amount)/sum(paid_amount)"
+  }
+}

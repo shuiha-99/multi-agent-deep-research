@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "description": "预先固定的工具查询顺序。等价标签供缓存复用核查，不证明搜索返回事实准确；禁止根据结果挑选请求。",
+  "dataset_role": "evaluation_only_not_threshold_calibration",
+  "cases": [
+    {"id":"seed-sales","window":1,"kind":"cold","query":"2026年1月华东咖啡用品销售额趋势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-sales"},
+    {"id":"same-punctuation","window":1,"kind":"equivalent","query":"2026年1月华东咖啡用品销售额趋势？","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-sales"},
+    {"id":"synonym-sales","window":1,"kind":"equivalent","query":"看看2026年1月华东咖啡用品的销售额走势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-sales"},
+    {"id":"changed-date","window":1,"kind":"negative_date","query":"2026年2月华东咖啡用品销售额趋势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-02-01","end_date":"2026-02-28","region":"华东","gold_group":"coffee-east-feb-sales"},
+    {"id":"changed-region","window":1,"kind":"negative_region","query":"2026年1月华南咖啡用品销售额趋势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华南","gold_group":"coffee-south-jan-sales"},
+    {"id":"changed-entity","window":1,"kind":"negative_entity","query":"2026年1月华东茶具销售额趋势","entity":"茶具","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"tea-east-jan-sales"},
+    {"id":"changed-intent","window":2,"kind":"negative_intent","query":"2026年1月华东咖啡用品销售额趋势的数据来源","entity":"咖啡用品","intent":"核实来源","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-source"},
+    {"id":"changed-metric","window":2,"kind":"negative_same_scope","query":"2026年1月华东咖啡用品退款金额趋势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-refund"},
+    {"id":"reordered-sales","window":2,"kind":"equivalent","query":"华东咖啡用品2026年1月销售额趋势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-sales"},
+    {"id":"feb-followup","window":2,"kind":"equivalent","query":"2026年2月华东咖啡用品销售额趋势？","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-02-01","end_date":"2026-02-28","region":"华东","gold_group":"coffee-east-feb-sales"},
+    {"id":"south-followup","window":2,"kind":"equivalent","query":"2026年1月华南咖啡用品销售额走势","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华南","gold_group":"coffee-south-jan-sales"},
+    {"id":"new-topic","window":2,"kind":"negative_same_scope","query":"2026年1月华东咖啡用品物流签收时效变化","entity":"咖啡用品","intent":"经营趋势","start_date":"2026-01-01","end_date":"2026-01-31","region":"华东","gold_group":"coffee-east-jan-logistics"}
+  ]
+}

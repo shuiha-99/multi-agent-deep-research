@@ -1,0 +1,36 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.env.*
+!.env.example
+data/
+frontend/node_modules/
+frontend/dist/
+*.log
+*.tsbuildinfo
+artifacts/
+
+# Local test databases, exports, resumes, and document previews.
+.test-artifacts/
+output/
+outputs/
+tmp/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.pem
+*.key
+
+# Personal interview preparation and its one-off document tooling.
+docs/INTERVIEW_*
+docs/LEARNING_ONE_DAY.md
+add_followups.py
+revise_interview_doc.py
+scripts/build_interview_reader.py
+scripts/verify_interview_reader.cjs
+templates/interview_reader.html
+
